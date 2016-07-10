@@ -1,0 +1,28 @@
+{
+  "name": "reactPractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "program.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZhackerZ/reactPractice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhackerZ/reactPractice/issues"
+  },
+  "homepage": "https://github.com/ZhackerZ/reactPractice",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-react-views": "^0.10.2",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}
