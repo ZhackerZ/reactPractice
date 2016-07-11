@@ -10,9 +10,9 @@ var express = require('express');
         ignore: false
     });
     
-    app.use('/', function(req, res) {
-      res.render('index', '');
-    });
+    app.use('/', function (req, res) {
+    	res.render('index', {data: [{title : "Test", detail : "haha"},{title : "Test Again", detail : "hehe"}]});
+	});
     
     app.listen(app.get('port'), function() {});
 
