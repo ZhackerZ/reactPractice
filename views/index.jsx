@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export default class TodoBox extends React.Component {
@@ -15,16 +14,16 @@ export default class TodoBox extends React.Component {
 
 class TodoList extends React.Component {
     render() {
-    	let todo = this.props.data.map(function (obj) {
+        var todo = this.props.data.map(function (obj) {
             return <Todo title={obj.title} key={obj.title}>{obj.detail}</Todo>
         });
         return (
             <div className="todoList">
-              <table style={{border: "2px solid black"}}>
-                <tbody>
-                  {todo}
-                </tbody>
-              </table>
+                <table style={{border: "2px solid black"}}>
+                    <tbody>
+                    {todo}
+                    </tbody>
+                </table>
             </div>
         );
     }
@@ -33,16 +32,31 @@ class TodoList extends React.Component {
 class Todo extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {checked: false};
+        this.state = {
+            checked: false,
+            TodoStyle: style.notCheckedTodo
+        };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
-        this.setState({checked: e.target.checked});
+        this.setState({
+            checked: e.target.checked
+        });
+        if (e.target.checked) {
+            this.setState({
+                TodoStyle: style.checkedTodo
+            });
+        } else {
+            this.setState({
+                TodoStyle: style.notCheckedTodo
+            });
+        }
     }
 
     render() {
         return (
-            <tr>
+            <tr style={this.state.TodoStyle}>
                 <td style={style.tableContent}>
                     <input type="checkbox" checked={this.state.checked} onChange={this.handleChange}/>
                 </td>
@@ -67,6 +81,12 @@ class TodoForm extends React.Component {
 }
 
 let style = {
+    checkedTodo: {
+        textDecoration: "line-through"
+    },
+    notCheckedTodo: {
+        textDecoration: "none"
+    },
     tableContent: {
         border: "1px solid black"
     }

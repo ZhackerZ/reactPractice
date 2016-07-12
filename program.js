@@ -28,11 +28,11 @@
         ignore: false
     });
     
-    app.use('/', function (req, res) {
-    	res.render('index', {data: [{title : "Test", detail : "haha"},{title : "Test Again", detail : "hehe"}]});
-	});
+    var data = [
+        {title: 'Shopping', detail: process.argv[3]},
+        {title: 'Hair cut', detail: process.argv[4]}
+    ];
     
-    app.listen(app.get('port'), function() {});
 
     app.use('/bundle.js', function (req, res) {
         res.setHeader('content-type', 'application/javascript');
@@ -65,8 +65,4 @@
     
         res.end(html);
     });
-
-
-
-
-
+    app.listen(app.get('port'), function() {});
